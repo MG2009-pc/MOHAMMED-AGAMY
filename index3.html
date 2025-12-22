@@ -1,42 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Agamy</title>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-    :root{
-      --primary:#00d4ff;
-      --secondary:#0b74ff;
-      --bg:#0a0f1a;
-      --card:#131b2a;
-      --text:#f9fafb;
-      --muted:#9ca3af;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Cairo',sans-serif;
-      margin:0;
-      color:var(--text);
-      background:var(--bg);
-      overflow-x:hidden;
-      min-height:100vh;
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MOHAMED AGAMY </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+      /* خلفية الأكواد المتحركة */
+.code-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+  overflow: hidden;
+}
+.code-type {
+  position: absolute;
+  color: rgba(124, 58, 237, 0.18);
+  font-family: monospace;
+  font-size: 15px;
+  white-space: pre;
+  user-select: none;
+  pointer-events: none;
+  animation: fadein 1s;
+  direction: ltr;
+  text-align: left;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
-    /* خلفية متحركة */
-    canvas.bg{
-      position:fixed;
-      top:0;left:0;
-      width:100%;
-      height:100%;
-      z-index:-1;
-      background:var(--bg);
+
+
+
+    :root{
+      --bg-1: #0f2230;
+      --bg-2: #122633;
+      --card: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.02);
+      --accent: #297df2;
+      --accent-2: #1fb6ff;
+      --muted: rgba(233,240,251,0.75);
+      --glass-border: rgba(255,255,255,0.03);
     }
- 
     *{box-sizing:border-box}
     html,body{height:100%}
-
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(41,125,242,0.06), transparent 8%),
+                  linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color: #e9f0fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+      scroll-behavior:smooth;
+    }
 
     /* top nav */
     .container{max-width:1200px;margin:0 auto}
@@ -58,7 +79,7 @@
       display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;margin-top:18px
     }
     .hero-card{
-      padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255, 255, 255, 0.062), rgba(255, 255, 255, 0.048));box-shadow: 0 20px 60px rgba(3,10,18,0.6), inset 0 1px 0 rgba(255,255,255,0.02);border:1px solid var(--glass-border);
+      padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008));box-shadow: 0 20px 60px rgba(3,10,18,0.6), inset 0 1px 0 rgba(255,255,255,0.02);border:1px solid var(--glass-border);
     }
     .eyebrow{color: rgba(41,125,242,0.6);font-weight:700;letter-spacing:1px;font-size:13px;margin-bottom:10px}
     h1{font-size:48px;margin:6px 0 8px;line-height:1;letter-spacing:-0.5px}
@@ -83,18 +104,18 @@
     .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
     .skill{display:flex;flex-direction:column;gap:8px}
     .skill .label{display:flex;justify-content:space-between;font-weight:600}
-    .bar{height:10px;border-radius:8px;background:rgba(255, 255, 255, 0.103);overflow:hidden}
-    .bar > i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,rgb(0, 195, 255) ,rgb(2, 142, 223),  rgb(0, 59, 223)  );width:40%}
+    .bar{height:10px;border-radius:8px;background:rgba(255,255,255,0.03);overflow:hidden}
+    .bar > i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:40%}
 
     /* experience */
     .exp-list{display:flex;flex-direction:column;gap:12px;margin-top:12px}
     .exp-item{display:flex;gap:12px}
-    .exp-item .meta{min-width:120px;color:rgb(233, 240, 251)}
+    .exp-item .meta{min-width:120px;color:rgba(233,240,251,0.6)}
     .exp-item .body{flex:1}
 
     /* projects */
     .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
-    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));border:1px solid var(--glass-border)}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.008), rgba(255,255,255,0.006));border:1px solid var(--glass-border)}
     .project img{width:100%;height:80%;object-fit:cover;border-radius:8px;margin-bottom:10px}
 
     /* certificates */
@@ -126,13 +147,10 @@
       .projects-grid{grid-template-columns:1fr}
       .cert-grid{grid-template-columns:1fr}
     }
-</style>
+  </style>
 </head>
-
 <body>
-    <canvas class="bg"></canvas>
-
-<div class="container">
+  <div class="container">
     <header>
       <div class="brand">
         <div class="avatar">( :</div>
@@ -180,8 +198,8 @@
         <p class="desc">proficient in mobile application development using Flutter, Kotlin, and Java, delivering high-quality and efficient solutions across both web and mobile platforms."</p>
         <div class="cta-row">
           
-       <a href="index.html"> <button class="icon-btn" title="LinkedIn"><img src="1.png" width="45px" style="border-radius: 6px;"></button></a>  
- <a href="index2.html"><button class="icon-btn" title="Facebook"><img src="2.png" width="45px" height="40px" style="border-radius: 6px;"></button></a>
+       <a href="index.html"> <button class="icon-btn" title="LinkedIn"><img src="1.png" width="47px" style="border-radius: 6px;"></button></a>  
+ <a href="index2.html"><button class="icon-btn" title="Facebook"><img src="2.png" width="47px" height="40px" style="border-radius: 6px;"></button></a>
  <a href="index3.html"><button class="icon-btn" title="Instagram"><img src="3.PNG" width="45px" style="border-radius: 6px;"></button></a>
         <h3>Change Theme</h3>
 </div>
@@ -218,7 +236,7 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" style="background-color: hsla(218, 100%, 86%, 0) ; border-radius: 24px;"  >
+    <section id="experience">
       <div class="section-head"><h2>Experience</h2><div style="color:rgba(255,255,255,0.6)">Work history</div></div>
       <div style="margin-top:12px" class="card">
         <div class="exp-list">
@@ -239,16 +257,8 @@
         </div>
       </div>
     </section>
-<br>
-<h3>Our Digitopia Competation Banner</h3>
- <div style="background-color: hsla(218, 100%, 86%, 0.027); border-radius: 24px;">
-  <br>
 
-  <center>
-    <img src="ll.png" width="300px" style="border-radius: 20px;">
-  </center>
-  <br>
-</div>
+ 
     <section id="certificates">
       <div class="section-head"><h2>Certificates</h2><div style="color:rgba(255,255,255,0.6)">Selected Works</div></div>
       <div style="margin-top:12px" class="projects-grid">
@@ -270,7 +280,6 @@
         </div>
       </div>
     </section>
-    <br>
 
     <section>
   <div class="section-head"><h2>Os Platforms</h2><div style="color:rgba(255,255,255,0.6)">Works On</div></div>
@@ -311,63 +320,7 @@
 
   <div style="position:fixed;left:18px;bottom:18px;width:48px;height:48px;border-radius:50%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-border);box-shadow:0 10px 30px rgba(2,8,15,0.6)">💬</div>
 
-
-<script>
-
-     // خلفية متحركة
-    const canvas = document.querySelector('canvas.bg');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resize(){
-      canvas.width = innerWidth;
-      canvas.height = innerHeight;
-    }
-    window.addEventListener('resize',resize);
-    resize();
-
-    for(let i=0;i<60;i++){
-      particles.push({
-        x:Math.random()*canvas.width,
-        y:Math.random()*canvas.height,
-        vx:(Math.random()-0.5)*0.6,
-        vy:(Math.random()-0.5)*0.6,
-        r:2+Math.random()*3,
-        color:`hsl(${Math.random()*360},100%,60%)`
-      });
-    }
-
-    function draw(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      for(let i=0;i<particles.length;i++){
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        if(p.x<0||p.x>canvas.width) p.vx*=-1;
-        if(p.y<0||p.y>canvas.height) p.vy*=-1;
-        ctx.beginPath();
-        ctx.fillStyle=p.color;
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fill();
-
-        for(let j=i+1;j<particles.length;j++){
-          const p2=particles[j];
-          const dx=p.x-p2.x,dy=p.y-p2.y,dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<120){
-            ctx.strokeStyle=`rgba(0,212,255,${1-dist/120})`;
-            ctx.beginPath();
-            ctx.moveTo(p.x,p.y);
-            ctx.lineTo(p2.x,p2.y);
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
-  </script>
-
-    <script>
+  <script>
     // mobile menu toggle
     const hamb = document.querySelector('.hamburger');
     const menu = document.getElementById('mobileMenu');
